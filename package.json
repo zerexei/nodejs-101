@@ -1,0 +1,11 @@
+{
+  "name": "node-101",
+  "version": "0.0.1",
+  "description": "node 101",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Angelo Arcillas",
+  "license": "MIT"
+}
