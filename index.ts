@@ -1,7 +1,8 @@
-import express, {Express, Request, Response} from 'express';
+import express, { Express, Request, Response } from 'express';
 import dotenv from 'dotenv';
 
-import assert from 'node:assert/strict';
+import { DB } from './database';
+// import assert from 'node:assert/strict';
 
 dotenv.config();
 
@@ -12,6 +13,16 @@ const port = process.env.PORT;
 
 app.get('/', (req: Request, res: Response) => {
   res.send('Hello World!')
+})
+
+app.get('/users', async (req: Request, res: Response) => {
+  const users = await DB.getUsers();
+  res.send(users)
+})
+
+app.get('/users/1', async (req: Request, res: Response) => {
+  const user = await DB.createUser('Jane', 'jane.doe@mail.com');
+  res.send(user);
 })
 
 app.post('/', (req, res) => {
